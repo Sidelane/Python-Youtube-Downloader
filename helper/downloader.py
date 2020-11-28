@@ -1,19 +1,22 @@
 import pytube
+import tqdm
+from pytube.cli import on_progress
 from sys import exit
 from helper.converter import convert
 
 def download_video(link: str):
-    video = pytube.YouTube(link)
+    video = pytube.YouTube(link, on_progress_callback=on_progress)
     stream = video.streams.get_highest_resolution()
 
     try:
         stream.download()
     except Exception as e:
         return e
+            
     return stream.default_filename
 
 def download_convert_video(link: str):
-    video = pytube.YouTube(link)
+    video = pytube.YouTube(link, on_progress_callback=on_progress)
     stream = video.streams.get_highest_resolution()
 
     try:
