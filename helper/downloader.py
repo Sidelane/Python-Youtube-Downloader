@@ -1,5 +1,4 @@
 import pytube
-import tqdm
 from pytube.cli import on_progress
 from sys import exit
 from helper.converter import convert
