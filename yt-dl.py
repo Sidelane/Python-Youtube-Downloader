@@ -1,5 +1,6 @@
 import argparse
 from sys import exit
+
 from helper.downloader import download
 from helper.exceptions import ArgumentError
 
